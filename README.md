@@ -8,6 +8,8 @@ TODO: Delete this and the text above, and describe your gem
 
 git
 
+commit 3
+
 Add this line to your application's Gemfile:
 
 ```ruby
