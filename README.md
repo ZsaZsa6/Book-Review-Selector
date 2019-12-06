@@ -8,13 +8,12 @@ TODO: Delete this and the text above, and describe your gem
 
 git
 
-<<<<<<< HEAD
+
 commit 3
 commit 4
-
+commit 5
 =======
->>>>>>> parent of ce5a5af... commit 3
-Add this line to your application's Gemfile:
+
 
 ```ruby
 gem 'book_review'
