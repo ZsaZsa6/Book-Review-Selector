@@ -6,14 +6,6 @@ TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
-git
-
-
-commit 3
-commit 4
-commit 5
-=======
-
 
 ```ruby
 gem 'book_review'
