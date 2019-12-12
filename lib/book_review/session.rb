@@ -4,7 +4,7 @@ class BookReview::Session
     puts "You can select your book by one of the following methods:\nA. By title of book \nB. By author of book (first and last name required)"
     puts "C. By browsing through genre/format lists"
     puts "To exit, enter 'exit'"
-
+      get_user_input
     if @input = "exit"
       goodbye
 
@@ -20,16 +20,24 @@ class BookReview::Session
   end
 
   def title_search
+    puts "Please enter the full title of the book:"
+    get_user_input
+    @input = title
 
+    puts "Select the number of the book to see the review:"
   end
 
   def author_search
-    puts "Select a book to see the review"
+      puts "Please enter the first and last name of the author:"
+      get_user_input
+      @input = author
+
+      puts "Select the number of the book to see the review:"
 
   end
 
   def gf_search
-      # names of bestseller lists = https://api.nytimes.com/svc/books/v3/lists/names.json
+      # bs_lists = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists/names.json")
 
   end
 
