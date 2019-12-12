@@ -1,4 +1,3 @@
-def greeting
-  puts "Hello, reader. Welcome to Book Review Selector. How would you like to choose the book to review?"
-  puts "a. By Book Title /n"
-end
+puts "Hello!! Welcome to Book Review Selector.\nWhich New York Times Best-selling Book review you like to read?"
+puts "You can select your book by one of the following methods:\nA. By title of book \nB. By author of book (first and last name required)"
+puts "C. By browsing through genre/format lists"
