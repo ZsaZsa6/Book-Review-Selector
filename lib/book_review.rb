@@ -5,6 +5,7 @@ require 'dotenv/load'
 require_relative "book_review/version"
 require_relative "book_review/review"
 require_relative "book_review/api"
+require_relative "book_review/session"
 
 
 module BookReview
