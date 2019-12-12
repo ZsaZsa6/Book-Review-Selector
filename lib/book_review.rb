@@ -1,10 +1,11 @@
-require "book_review/version"
-class Book_list
+require 'pry'
+require 'httparty'
+require 'dotenv/load'
 
-  @@all = []
-
-  def initialize()
-
+require_relative "book_review/version"
+# require_relative "london_spas/cli"
+# require_relative "london_spas/api"
+# require_relative "london_spas/spa"
 
 module BookReview
   class Error < StandardError; end
