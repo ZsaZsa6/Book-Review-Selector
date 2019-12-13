@@ -23,7 +23,7 @@ class BookReview::Session
     puts "Please enter the full title of the book:"
     get_user_input
     @input = title
-
+    
     puts "Select the number of the book to see the review:"
   end
 

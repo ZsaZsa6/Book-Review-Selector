@@ -1,6 +1,6 @@
 class BookReview::Api
 
-  def self.author_lists
+  def self.review_lists
 #         resp = HTTParty.get(https://api.nytimes.com/svc/books/v3/reviews.json?author=) {
 #             {"Authorization" => "Bearer #{ENV['YELP_API_KEY']}"},
 #         })
@@ -9,11 +9,11 @@ class BookReview::Api
 #         spas = resp["businesses"]
 #         LondonSpas::Spa.new_from_collection(spas)
 # end
-# def self.title_lists
+def self.title_lists
 
 #
 
 # end
-
+def self.author_lists
 #
 # end
