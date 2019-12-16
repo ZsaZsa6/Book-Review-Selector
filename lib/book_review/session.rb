@@ -18,7 +18,7 @@ class BookReview::Session
         invalid_input
       end
   end
-
+binding.pry
   def title_search
     puts "Please enter the full title of the book:"
     get_user_input
@@ -37,7 +37,7 @@ class BookReview::Session
   end
 
   def gf_search
-      
+
 
   end
 
