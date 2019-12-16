@@ -6,10 +6,8 @@ class BookReview::Session
     puts "C. By browsing through genre/format lists"
     puts "To exit, enter 'exit'"
       get_user_input
-    if @input = "exit"
-      goodbye
 
-      elsif @input = "A" || "a"
+    if @input = "A" || "a"
         title_search
       elsif @input = "B" || "b"
         author_search
@@ -17,13 +15,17 @@ class BookReview::Session
         gf_search
       else
         invalid_input
+    end
+      if @input = "exit"
+        goodbye
       end
   end
 # binding.pry
   def title_search
     puts "Please enter the full title of the book:"
     get_user_input
-    @input = title
+    BookReview::Api.title_lists
+    # title = @input
 
     puts "Select the number of the book to see the review:"
   end
