@@ -1,18 +1,22 @@
 class BookReview::Book
 
-  attr_accessor :num_results, :url, :book_title, :book_author, :summary, :isbn13
+  attr_accessor :url, :book_title, :book_author, :summary, :isbn13
   @@all = []
 
   def initialize(attr_accessor)
-    set_num_results
     attrs_from_hash(attr_accessor)
     save
   end
 
-  def set_num_results
-    @num_results = @@all.length + 1
-  end
+  # def set_num_results
+  #   @num_results = @@all.length + 1
+  # end
 
+  def self.title(titles)
+    titles.each do |attr_accessor|
+      new(attr_accessor)
+    end
+  end
   def self.review(reviews)
     reviews.each do |attr_accessor|
         new(attr_accessor)

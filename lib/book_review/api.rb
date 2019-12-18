@@ -12,7 +12,7 @@ class BookReview::Api
       book = book.new
       resp = resp["results"][0]["book_title"]["book_author"]["summary"]["isbn13"][0]
       binding.pry
-      BookReview::Book.review("reviews")
+      BookReview::Book.title("titles")
   end
 
 #   def self.author_lists
