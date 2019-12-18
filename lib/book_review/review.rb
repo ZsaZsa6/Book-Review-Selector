@@ -1,5 +1,6 @@
-class BookReview::Review
-  attr_accessor :num_results, :url, :publication_dt, :book_title, :book_author, :summary, :isbn13
+class BookReview::Books
+
+  attr_accessor :num_results, :url, :book_title, :book_author, :summary, :isbn13
   @@all = []
 
   def initialize(attr_accessor)
@@ -12,7 +13,7 @@ class BookReview::Review
     @num_results = @@all.length + 1
   end
 
-  def self.new_from_collection(reviews)
+  def self.review(reviews)
     reviews.each do |attr_accessor|
         new(attr_accessor)
     end
