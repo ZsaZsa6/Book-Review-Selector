@@ -1,6 +1,6 @@
 require 'pry'
 require 'httparty'
-require 'dotenv/load'
+# require 'dotenv/load'
 
 require_relative "book_review/version"
 require_relative "book_review/review"

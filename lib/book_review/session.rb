@@ -2,17 +2,19 @@ class BookReview::Session
 
   def greeting
     puts "Hello!! Welcome to Book Review Selector.\nWhich New York Times Best-selling Book review you like to read?"
-    puts "You can select your book by one of the following methods:\nA. By title of book \nB. By author of book (first and last name required)"
-    puts "C. By browsing through genre/format lists"
+    puts "You can select your book by one of the following methods:\nA. By title of book \nB. By the thirteen digit ISBN."
+    puts "Please type A or B."
     puts "To exit, enter 'exit'"
       get_user_input
 
     if @input = "A" || "a"
         title_search
       elsif @input = "B" || "b"
-        author_search
-      elsif @input = "C" || "c"
-        gf_search
+
+      # elsif @input = "B" || "b"
+        # author_search
+      # elsif @input = "C" || "c"
+        # gf_search
       else
         invalid_input
     end
@@ -27,7 +29,10 @@ class BookReview::Session
     BookReview::Api.title_lists
     title = @input
 
-    puts "Select the number of the book to see the review:"
+    put "Is this the book you would like to review? Type yes or no."
+      get_user_input
+      if @input = "y" || "yes" || "Y" || "Yes"
+        Book_Review::Api.
   end
 
   def author_search
