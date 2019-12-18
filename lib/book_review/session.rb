@@ -25,7 +25,7 @@ class BookReview::Session
     puts "Please enter the full title of the book:"
     get_user_input
     BookReview::Api.title_lists
-    # title = @input
+    title = @input
 
     puts "Select the number of the book to see the review:"
   end
