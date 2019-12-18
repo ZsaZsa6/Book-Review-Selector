@@ -1,4 +1,4 @@
-class BookReview::Books
+class BookReview::Book
 
   attr_accessor :num_results, :url, :book_title, :book_author, :summary, :isbn13
   @@all = []
