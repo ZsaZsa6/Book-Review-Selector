@@ -3,7 +3,11 @@ class BookReview::Author
     attr_accessor :num_results, book_title, :book_author, :summary, :url, :isbn13
 
     def initialize(attr_accessor)
-    
+
+    end
+
+    def set_num_results
+      @num_results = @@all.length + 1
     end
 
 
