@@ -6,10 +6,10 @@ class BookReview::Api
         BookReview::Book.review(reviews)
         # binding.pry
     end
-  def self.title_lists
+  def self.title_lists(title)
       resp = HTTParty.get("https://api.nytimes.com/svc/books/v3/reviews.json?title=#{"title"}&api-key=#{ENV["API_KEY"]}")
 
-      book_title = resp["results"][0]["book_title"]["book_author"]["summary"]["isbn13"][0]
+      resp = resp["results"][0]["book_title"]["book_author"]["summary"]["isbn13"][0]
       book = BookReview::Book.new
       binding.pry
       BookReview::Book.title("titles")
