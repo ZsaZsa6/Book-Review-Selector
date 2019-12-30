@@ -4,26 +4,26 @@ class BookReview::Book
   @@all = []
 
   def initialize(attr_accessor)
-    # attrs_from_hash(attr_accessor)
-    title(title)
+    attrs_from_hash(attr_accessor)
+    title(book)
     save
   end
 
-  # def set_num_results
-  #   @num_results = @@all.length + 1
-  # end
+  def set_num_results
+    @num_results = @@all.length + 1
+  end
 
-  def self.title(title)
-    title.each do |attr_accessor|
+  def self.title(book)
+    book.each do |attr_accessor|
       new(attr_accessor)
     end
   end
 
-  def self.review(reviews)
-    reviews.each do |attr_accessor|
-        new(attr_accessor)
-    end
-  end
+  # def self.review(reviews)
+  #   reviews.each do |attr_accessor|
+  #       new(attr_accessor)
+  #   end
+  # end
 
   def attrs_from_hash(attr_accessor)
     attr_accessor.each do |k, v|
@@ -37,7 +37,7 @@ class BookReview::Book
   end
 
   def self.all
-    title_lists if @@all == []
+    BookReview.Api.title_lists if @@all == []
     @@all
   end
 

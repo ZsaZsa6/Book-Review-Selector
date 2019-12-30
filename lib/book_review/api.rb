@@ -8,10 +8,10 @@ class BookReview::Api
     end
   def self.title_lists(title)
       resp = HTTParty.get("https://api.nytimes.com/svc/books/v3/reviews.json?title=#{title}&api-key=#{ENV["API_KEY"]}")
-
       binding.pry
-      book_details = resp["results"][0]["book_title"]["book_author"]["summary"]["isbn13"][0]
-      # book = BookReview::Book.new
-      BookReview::Book.title("titles")
+      book = resp["results"][0]["book_title"]["book_author"]["summary"]["isbn13"][0]
+      book = BookReview::Book.new_from_collection
+
+
   end
 end

@@ -24,7 +24,7 @@ end
   def title_search
     puts "Please enter the full title of the book:"
     @input = gets.strip
-    title = @input
+    title = @input 
     BookReview::Api.title_lists(title)
 
   end
