@@ -4,8 +4,8 @@ class BookReview::Book
   @@all = []
 
   def initialize(attr_accessor)
+    set_num_results
     attrs_from_hash(attr_accessor)
-    title(book)
     save
   end
 
@@ -13,7 +13,7 @@ class BookReview::Book
     @num_results = @@all.length + 1
   end
 
-  def self.title(book)
+  def self.new_from_collection(book)
     book.each do |attr_accessor|
       new(attr_accessor)
     end
