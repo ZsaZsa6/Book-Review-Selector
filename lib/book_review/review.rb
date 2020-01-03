@@ -1,51 +1,22 @@
-class BookReview::Book
 
-  attr_accessor :url, :book_title, :book_author, :summary, :isbn13
-  @@all = []
+class BookReview::Review
 
-  def initialize(attr_accessor)
-    set_num_results
-    attrs_from_hash(attr_accessor)
-    save
-  end
+    attr_accessor :num_results, :book_title, :book_author, :summary, :url, :isbn13
+    @@books = []
+    def initialize(attr_accessor)
 
-  def set_num_results
-    @num_results = @@all.length + 1
-  end
-
-  def self.new_from_collection(book)
-    book.each do |attr_accessor|
-      new(attr_accessor)
     end
-  end
 
-  # def self.review(reviews)
-  #   reviews.each do |attr_accessor|
-  #       new(attr_accessor)
-  #   end
-  # end
-
-  def attrs_from_hash(attr_accessor)
-    attr_accessor.each do |k, v|
-        send("#{k}=", v)
+    def set_num_results
+      @num_results = @@books.length + 1
     end
-  end
 
-  def self.review_lists
-    BookReview::Api.review_lists
-    all
-  end
+    def self.book_list(books)
+      books.each do |attr_accessor|
+          new(attr_accessor)
+      end
+    end
 
-  def self.all
-    BookReview.Api.title_lists if @@all == []
-    @@all
-  end
 
-  def save
-    @@all << self
-  end
 
-  def self.find_by_id(input)
-    all.find{|s| s.int_id == input.to_i}
-  end
 end

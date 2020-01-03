@@ -4,7 +4,7 @@ require 'httparty'
 
 require_relative "book_review/version"
 require_relative "book_review/review"
-require_relative "book_review/author"
+require_relative "book_review/book"
 require_relative "book_review/api"
 require_relative "book_review/session"
 

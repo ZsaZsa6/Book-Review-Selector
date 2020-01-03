@@ -15,24 +15,24 @@ class BookReview::Session
         invalid_input
     end
 
-      if @input = "exit"
+      if @input = "exit" || "Exit"
         goodbye
+
       end
-  end
-end
+    end
 
   def title_search
     puts "Please enter the full title of the book:"
     @input = gets.strip
-    title = @input 
+    title = @input
     BookReview::Api.title_lists(title)
-
   end
-  def confirmation
-    put "Is this the book you would like to review? Type yes or no."
+
+  def self.confirmation
+    # puts "#{book}"
+    puts "Is this the book you would like to review? Type yes or no."
       get_user_input
       if @input = "y" || "yes" || "Y" || "Yes"
-        Book_Review::Api.
     end
   end
 
