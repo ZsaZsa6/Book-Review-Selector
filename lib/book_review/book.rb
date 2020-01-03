@@ -4,23 +4,22 @@ class BookReview::Book
   @@all = []
 
   def initialize(attr_accessor)
-    attrs_from_hash(attr_accessor)
-    binding.pry
-    save
+    # attrs_from_hash(attr_accessor)
+    # binding.pry
+    # save
   end
 
   def self.new_from_collection(book)
-    book.each do |attr_accessor|
-      new(attr_accessor)
-      # binding.pry
-    end
-  end
+    @@all << book.values
+      binding.pry
 
-  def attrs_from_hash(attr_accessor)
-    attr_accessor.each do |k, v|
-      send("#{k}=", v)
     end
-  end
+
+  # def attrs_from_hash(attr_accessor)
+  #   attr_accessor.each do |key, value|
+  #     puts"#{key}=", v
+  #   end
+  # end
 
   def self.title_lists
     BookReview::Api.title_lists
