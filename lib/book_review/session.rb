@@ -7,25 +7,32 @@ class BookReview::Session
 
     @input = gets.strip
 
-    if @input = "A" || "a"
+    if @input == "A" || @input == "a"
         title_search
-      elsif @input = "B" || "b"
+    end
+    if @input == "B" || @input == "b"
         isbn_search
       else
         invalid_input
     end
 
-      if @input = "exit" || "Exit"
+    if @input == "exit" || @input == "Exit"
         goodbye
-
       end
-    end
+  end
 
   def title_search
     puts "Please enter the full title of the book:"
     @input = gets.strip
     title = @input
     BookReview::Api.title_lists(title)
+  end
+
+  def isbn_search
+    puts "Please enter the thirteen digit ISBN:"
+    @input = gets.strip
+    isbn13 = @input
+    BookReview::Api.isbn_lists(isbn13)
   end
 
   def self.confirmation

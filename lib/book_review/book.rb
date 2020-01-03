@@ -13,7 +13,7 @@ class BookReview::Book
       new(attr_accessor).values
     end
   end
-  binding.pry
+  # binding.pry
 
   # def attrs_from_hash(attr_accessor)
   #   book_hash = attr_accessor.values
