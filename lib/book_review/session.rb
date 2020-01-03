@@ -12,13 +12,13 @@ class BookReview::Session
     end
     if @input == "B" || @input == "b"
         isbn_search
-      else
+    end
+    if @input == "exit" || @input == "Exit"
+          goodbye
+    else
         invalid_input
     end
 
-    if @input == "exit" || @input == "Exit"
-        goodbye
-      end
   end
 
   def title_search
@@ -45,11 +45,9 @@ class BookReview::Session
 
 
   def invalid_input
-    puts "You can select your book by one of the following methods:\nA. By title of book \nB. By author of book (first and last name required)"
-    puts "C. By browsing through genre/format lists"
-    puts "Please choose A, B, or C."
-    puts "To exit, enter 'exit'"
-      sleep(2)
+    puts "That input is invalid. Please try again.\n\n"
+    sleep(2)
+    greeting
   end
 
   def get_user_input
