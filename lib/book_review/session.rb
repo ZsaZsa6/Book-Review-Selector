@@ -8,13 +8,13 @@ class BookReview::Session
     @input = gets.strip
 
     if @input == "A" || @input == "a"
-        title_search
+      title_search
     end
     if @input == "B" || @input == "b"
-        isbn_search
+      isbn_search
     end
     if @input == "exit" || @input == "Exit"
-          goodbye
+      goodbye
     # else
     #     invalid_input
     end
@@ -27,7 +27,7 @@ class BookReview::Session
     title = @input
     BookReview::Book.all.detect {|book| book.book_title == title}
       binding.pry
-    end
+
     BookReview::Api.title_lists(title)
   end
 
@@ -41,7 +41,7 @@ class BookReview::Session
   def confirmation
     # binding.pry
     book = BookReview::Book.all[0]
-    puts "#{book.book_title}\n#{book.book_author}\n#{book.summary}\n#{book.isbn13}\n"
+    puts "Book Title: #{book.book_title}\nAuthor: #{book.book_author}\nSummary: Summary: #{book.summary}\nISBN13: #{book.isbn13}\n"
     puts "Is this the book for which you would like to read the NYT review? Type yes or no."
     # binding.pry
     @input = gets.strip
