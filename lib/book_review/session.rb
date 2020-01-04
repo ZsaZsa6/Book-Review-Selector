@@ -36,10 +36,11 @@ class BookReview::Session
   end
 
   def self.confirmation
-    # puts "#{book}"
+    BookReview::Book.all
     puts "Is this the book you would like to review? Type yes or no."
-      get_user_input
-      if @input = "y" || "yes" || "Y" || "Yes"
+      @input = gets.strip
+      if @input == "y" || @input == "yes" || @input == "Y" || @input == "Yes"
+        
     end
   end
 

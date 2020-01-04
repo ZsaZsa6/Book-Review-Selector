@@ -1,6 +1,6 @@
 class BookReview::Book
 
-  attr_accessor :url, :book_title, :book_author, :summary, :isbn13
+  attr_accessor :book_title, :book_author, :summary, :isbn13
   @@all = []
 
   def initialize(attr_accessor)
@@ -10,7 +10,9 @@ class BookReview::Book
   end
 
   def self.new_from_collection(book)
-    @@all << book.values
+    book.each do | key, value |
+    puts "book_title: #{book[book_title].values}"
+    # @@all << book.values
       binding.pry
 
     end
