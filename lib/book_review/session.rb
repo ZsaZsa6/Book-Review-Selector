@@ -25,6 +25,9 @@ class BookReview::Session
     puts "Please enter the full title of the book:"
     @input = gets.strip
     title = @input
+    BookReview::Book.all.detect {|book| book.book_title == title}
+      binding.pry
+    end
     BookReview::Api.title_lists(title)
   end
 
@@ -36,11 +39,17 @@ class BookReview::Session
   end
 
   def confirmation
-    BookReview::Book.all.each{|book| puts "#{book.book_title}\n#{book.book_author}\n#{book.summary}\n#{book.isbn13}\n"}
+    # binding.pry
+    book = BookReview::Book.all[0]
+    puts "#{book.book_title}\n#{book.book_author}\n#{book.summary}\n#{book.isbn13}\n"
     puts "Is this the book for which you would like to read the NYT review? Type yes or no."
-    binding.pry
-      @input = gets.strip
-      if @input == "y" || @input == "yes" || @input == "Y" || @input == "Yes"
+    # binding.pry
+    @input = gets.strip
+    if @input == "y" || @input == "yes" || @input == "Y" || @input == "Yes"
+      puts "Getting Review"
+
+    elsif @input =="n"
+      greeting
 
     end
   end
