@@ -15,10 +15,6 @@ class BookReview::Book
     @@all
   end
 
-
-
-
-
   def save
     @@all << self
   end
