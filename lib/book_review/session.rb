@@ -15,10 +15,10 @@ class BookReview::Session
     end
     if @input == "exit" || @input == "Exit"
           goodbye
-    else
-        invalid_input
+    # else
+    #     invalid_input
     end
-
+    confirmation
   end
 
   def title_search
@@ -35,12 +35,13 @@ class BookReview::Session
     BookReview::Api.isbn_lists(isbn13)
   end
 
-  def self.confirmation
-    BookReview::Book.all
-    puts "Is this the book you would like to review? Type yes or no."
+  def confirmation
+    BookReview::Book.all.each{|book| puts "#{book.book_title}\n#{book.book_author}\n#{book.summary}\n#{book.isbn13}\n"}
+    puts "Is this the book for which you would like to read the NYT review? Type yes or no."
+    binding.pry
       @input = gets.strip
       if @input == "y" || @input == "yes" || @input == "Y" || @input == "Yes"
-        
+
     end
   end
 
@@ -51,9 +52,9 @@ class BookReview::Session
     greeting
   end
 
-  def get_user_input
-    @input = gets.strip
-  end
+  # def get_user_input
+  #   @input = gets.strip
+  # end
 
   def goodbye
     puts "Thank you for using Book Review Selector. Have a great day!"
