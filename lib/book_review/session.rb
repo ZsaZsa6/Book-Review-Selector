@@ -25,10 +25,12 @@ class BookReview::Session
     puts "Please enter the full title of the book:"
     @input = gets.strip
     title = @input
-    BookReview::Book.all.detect {|book| book.book_title == title}
-      binding.pry
+    until BookReview::Book.all.detect {|book| book.book_title == title}
+
+      # binding.pry
 
     BookReview::Api.title_lists(title)
+    end
   end
 
   def isbn_search
@@ -48,7 +50,7 @@ class BookReview::Session
     if @input == "y" || @input == "yes" || @input == "Y" || @input == "Yes"
       puts "Getting Review"
 
-    elsif @input =="n"
+    elsif @input =="n" || @input == "N" || @input == "yes" || @input == "Yes"
       greeting
 
     end
