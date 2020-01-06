@@ -1,7 +1,6 @@
 require 'pry'
 require 'httparty'
-require 'nokogiri'
-require 'open-uri'
+
 # require 'dotenv/load'
 
 require_relative "book_review/version"

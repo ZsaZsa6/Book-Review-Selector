@@ -25,13 +25,13 @@ class BookReview::Session
     puts "Please enter the full title of the book:"
     @input = gets.strip
     title = @input
-    until BookReview::Book.all.detect {|book| book.book_title == title}
-      BookReview::Api.title_lists(title)
-
+    BookReview::Api.title_lists(title)
+    if BookReview::Book.all.detect {|book| book.book_title == title}
       binding.pry
-      if BookReview::Book.all.detect {|book| book.book_title == title}
-        return BookReview::Book.all
-      end
+        return BookReview::Book.book 
+
+      # if BookReview::Book.all.detect {|book| book.book_title == title}
+      # end
     end
   end
 
