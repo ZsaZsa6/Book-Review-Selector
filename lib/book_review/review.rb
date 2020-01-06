@@ -8,8 +8,10 @@ class BookReview::Review
       save
     end
 
-  
 
+    def save
+    @@reviews << self
+    end
 
 
 end
