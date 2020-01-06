@@ -1,4 +1,5 @@
 
+
 class BookReview::Review
 
     attr_accessor :url

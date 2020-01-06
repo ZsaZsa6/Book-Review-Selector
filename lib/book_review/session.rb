@@ -30,7 +30,7 @@ class BookReview::Session
 
       binding.pry
       if BookReview::Book.all.detect {|book| book.book_title == title}
-        return BookReview::Book.all[-1]
+        return BookReview::Book.all
       end
     end
   end
@@ -44,7 +44,7 @@ class BookReview::Session
 
   def confirmation
     # binding.pry
-    book = BookReview::Book.all[0]
+    book = BookReview::Book.all[-1]
     puts "Book Title: #{book.book_title}\nAuthor: #{book.book_author}\nSummary: Summary: #{book.summary}\nISBN13: #{book.isbn13}\n\n"
     puts "Is this the book for which you would like to read the NYT review? Type yes or no."
     # binding.pry
