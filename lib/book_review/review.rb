@@ -7,14 +7,16 @@ class BookReview::Review
     @@reviews = []
     def initialize(url)
       @url = url
-      save
+      html = open(url)
+      doc = Nokogiri::HTML(html)
+
       binding.pry
     end
 
 
-    def save
-    @@reviews << self
-    end
+    # def save
+    # @@reviews << self
+    # end
 
 
 end
