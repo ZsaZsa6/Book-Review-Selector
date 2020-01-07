@@ -14,11 +14,11 @@ class BookReview::Review
     def get_docs(url)
       html = open(url)
       doc = Nokogiri::HTML(html)
-      binding.pry
+      # binding.pry
     end
 
     def self.review(doc)
-      review = doc.css("#story > section > div:nth-child(1) > div > p:nth-child(2)")
+      review = doc.css(".css-exrw3m evys1bk0")
       binding.pry
       review.each do |review|
         puts review.text.strip
