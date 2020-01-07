@@ -27,7 +27,7 @@ class BookReview::Session
     title = @input
     BookReview::Api.title_lists(title)
     if BookReview::Book.all.detect {|book| book.book_title == title}
-      binding.pry
+      # binding.pry
         return BookReview::Book.all
 
       # if BookReview::Book.all.detect {|book| book.book_title == title}
@@ -52,6 +52,7 @@ class BookReview::Session
     if @input == "y" || @input == "yes" || @input == "Y" || @input == "Yes"
       puts "Getting Your Review"
       BookReview::Review.new(book.url)
+      binding.pry
 
     elsif @input =="n" || @input == "N" || @input == "yes" || @input == "Yes"
       greeting
