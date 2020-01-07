@@ -28,7 +28,7 @@ class BookReview::Session
     BookReview::Api.title_lists(title)
     if BookReview::Book.all.detect {|book| book.book_title == title}
       binding.pry
-        return BookReview::Book.book 
+        return BookReview::Book.all
 
       # if BookReview::Book.all.detect {|book| book.book_title == title}
       # end
@@ -50,7 +50,8 @@ class BookReview::Session
     # binding.pry
     @input = gets.strip
     if @input == "y" || @input == "yes" || @input == "Y" || @input == "Yes"
-      puts "Getting Review"
+      puts "Getting Your Review"
+      BookReview::Review.new(book.url)
 
     elsif @input =="n" || @input == "N" || @input == "yes" || @input == "Yes"
       greeting

@@ -8,6 +8,7 @@ class BookReview::Review
     def initialize(url)
       @url = url
       save
+      binding.pry
     end
 
 
