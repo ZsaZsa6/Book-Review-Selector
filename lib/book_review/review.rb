@@ -7,19 +7,23 @@ class BookReview::Review
 
     def initialize(url)
       @url = url
-      get_reviews(url)
+      get_doc(url)
 
     end
 
-    def get_reviews(url)
-      html = open(url)
-      doc = Nokogiri::HTML(html)
-      reviews = doc.css(".css-exrw3m evys1bk0")
+    def get_doc(url)
+      doc = Nokogiri::HTML(open(url))
+      review = doc.css("#story")
       binding.pry
-      reviews.each do |review|
+      review.each do |review|
         puts review.text.strip
+      end
+      # binding.pry
     end
 
+    def get_reviews
+
+    end
     # def review(doc)
     #   review =
     #   binding.pry
@@ -38,5 +42,5 @@ class BookReview::Review
       #                                                children = [
     # /html/body/div[1]/div/div/div[2]/main/div/article/section/div[1]/div/p[4]
 
-  end
+
 end
