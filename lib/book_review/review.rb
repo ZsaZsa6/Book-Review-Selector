@@ -13,13 +13,16 @@ class BookReview::Review
 
     def get_doc(url)
       doc = Nokogiri::HTML(open(url))
-      # article =
-      puts doc.css("#story > section")
-      # article.each do |article|
-        # puts article.text
-      binding.pry
+      article = doc.css("section")
+      paragraphs = article.css("div p")
+      paragraphs.each do |p|
+      puts p.text, ""
+      # # if p.text != "\u009" && p.text != ""
+      # # puts review.count
+      # #   puts article.css("div").text
       #   binding.pry
-      # end
+
+      end
 
     end
 

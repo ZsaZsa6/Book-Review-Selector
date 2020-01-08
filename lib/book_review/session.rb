@@ -44,7 +44,7 @@ class BookReview::Session
   def confirmation
     # binding.pry
     book = BookReview::Book.all[-1]
-    puts "Book Title: #{book.book_title}\nAuthor: #{book.book_author}\nSummary: Summary: #{book.summary}\nISBN13: #{book.isbn13}\n\n"
+    puts "\n\nBook Title: #{book.book_title}\nAuthor: #{book.book_author}\nSummary: #{book.summary}\n\nISBN13: #{book.isbn13}\n\n"
     puts "Is this the book for which you would like to read the NYT review? Type yes or no."
     @input = gets.strip
     if @input == "y" || @input == "yes" || @input == "Y" || @input == "Yes"

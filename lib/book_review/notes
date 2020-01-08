@@ -40,3 +40,12 @@ om the Jim Crow South to Chicago’s South Side and her own improbable journey f
 
 #story > section > div:nth-child(1) > div > p:nth-child(3)
 document.querySelector("#story")
+
+#story > section > div:nth-child(1) > div > p:nth-child(2)
+#story > section > div:nth-child(1) > div > p:nth-child(3)
+#story > section > div:nth-child(1) > div > p:nth-child(4)
+#story > section > div:nth-child(3) > div > p
+#story > section > div:nth-child(1) > div > p:nth-child(2)
+
+#story > section > div:nth-child(5) > div > p:nth-child(3)
+#story > section > div:nth-child(5) > div > p:nth-child(3)
