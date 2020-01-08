@@ -8,7 +8,8 @@ class BookReview::Api
         book_author = book["book_author"]
         summary = book["summary"]
         isbn13 = book["isbn13"][0]
-        BookReview::Book.new(book_title, book_author, summary, isbn13)
+        url = book["url"]
+        BookReview::Book.new(book_title, book_author, summary, isbn13, url)
 
     end
   def self.title_lists(title)

@@ -1,5 +1,4 @@
-require 'nokogiri'
-require 'open-uri'
+
 
 class BookReview::Review
 
@@ -8,21 +7,25 @@ class BookReview::Review
 
     def initialize(url)
       @url = url
-      get_docs(url)
+      get_reviews(url)
+
     end
 
-    def get_docs(url)
+    def get_reviews(url)
       html = open(url)
       doc = Nokogiri::HTML(html)
-      # binding.pry
+      reviews = doc.css(".css-exrw3m evys1bk0")
+      binding.pry
+      reviews.each do |review|
+        puts review.text.strip
     end
 
-    def self.review(doc)
-      review = doc.css(".css-exrw3m evys1bk0")
-      binding.pry
-      review.each do |review|
-        puts review.text.strip
-      end
+    # def review(doc)
+    #   review =
+    #   binding.pry
+    #   review.each do |review|
+    #     puts review.text.strip
+    #   end
 
 
       # #(Element:0x1411f6c {
