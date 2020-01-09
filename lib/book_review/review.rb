@@ -16,7 +16,7 @@ class BookReview::Review
       article = doc.css("section")
       paragraphs = article.css("div p")
       paragraphs.each do |p|
-      puts p.text, ""
+      puts p.text, "--"
       # # if p.text != "\u009" && p.text != ""
       # # puts review.count
       # #   puts article.css("div").text
