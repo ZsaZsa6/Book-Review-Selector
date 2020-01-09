@@ -28,9 +28,9 @@ class BookReview::Session
     found_book = title
     if found_book = BookReview::Book.all.detect {|book| book.book_title == title}
       return found_book
+      binding.pry
     else
     BookReview::Api.title_lists(title)
-          binding.pry
     end
   end
 
@@ -38,12 +38,18 @@ class BookReview::Session
     puts "Please enter the thirteen digit ISBN:"
     @input = gets.strip
     isbn13 = @input
+    found_book = title
+    if found_book = BookReview::Book.all.detect {|book| book.book_title == title}
+      return found_book
+      binding.pry
+    else
     BookReview::Api.isbn_lists(isbn13)
+    end
   end
 
   def confirmation
     # binding.pry
-    book = BookReview::Book.all[-1]
+    book = BookReview::Book
     puts "\n\nBook Title: #{book.book_title}\nAuthor: #{book.book_author}\nSummary: #{book.summary}\n\nISBN13: #{book.isbn13}\n\n"
     puts "Is this the book for which you would like to read the NYT review? Type yes or no."
     @input = gets.strip
