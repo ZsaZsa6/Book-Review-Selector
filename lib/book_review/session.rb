@@ -25,11 +25,6 @@ class BookReview::Session
     puts "Please enter the full title of the book:"
     @input = gets.strip
     title = @input
-    # found_book = title
-    # if found_book = BookReview::Book.all.detect {|book| book.book_title == title}
-    #    found_book(book)
-    #
-    # else
     BookReview::Api.title_lists(title)
   end
 
@@ -37,37 +32,40 @@ class BookReview::Session
     puts "Please enter the thirteen digit ISBN:"
     @input = gets.strip
     isbn13 = @input
-    # found_book = isbn13
-    # if found_book = BookReview::Book.all.detect {|book| book.isbn13 == isbn13}
-    #   return found_book
-    # else
     BookReview::Api.isbn_lists(isbn13)
-
   end
 
   def confirmation
-    until BookReview::Book.all.length == 2
-      book = BookReview::Book.all[-1]
-      puts "Book Title: #{book.book_title}\nAuthor: #{book.book_author}\nSummary: #{book.summary}\n\nISBN13: #{book.isbn13}\n\n"
-      puts "Is this the book for which you would like to read the NYT review? Type yes or no."
+    # until BookReview::Book.all.length == 2
+      book = BookReview::Book.all
+      book_id = BookReview::Book.all.length + 1
+      book.each do | book |
+      puts "Book ID: #{book_id}\nBook Title: #{book.book_title}\nAuthor: #{book.book_author}\nSummary: #{book.summary}\n\nISBN13: #{book.isbn13}\n\n"
+      puts "Which book would you like to select to read the NYT review?\n\n Please enter the Book ID of the book you would like to review or the number 0 if your book is not listed."
       @input = gets.strip
-      if @input == "y" || @input == "yes" || @input == "Y" || @input == "Yes"
+      if @input = 0
+        greeting
+      elsif do BookReview::Book.all.find{|book| book_id == @input.to_i}
+      puts "Book ID: #{book_id}\nBook Title: #{book.book_title}\nAuthor: #{book.book_author}\nSummary: #{book.summary}\n\nISBN13: #{book.isbn13}"
+      puts "Is this the book you would like to review?"
+      @input = gets.strip
+      elsif @input == "y" || @input == "yes" || @input == "Y" || @input == "Yes"
         puts "Getting Your Review"
         BookReview::Review.new(book.url)
+        binding.pry
 
-      elsif @input =="n" || @input == "N" || @input == "No" || @input == "NO"
+      else @input =="n" || @input == "N" || @input == "No" || @input == "NO"
       greeting
+      end
+        # book_id = BookReview::Book.all.length
 
-        book_id = BookReview::Book.all.length
-
-        BookReview::Book.all.each do
-        puts "Book ID: #{book_id}\nBook Title: #{book.book_title}\nAuthor: #{book.book_author}\nSummary: #{book.summary}\n\nISBN13: #{book.isbn13}"
-        puts "Which book would you like to select to read the NYT review?"
-        @input = gets.strip
-
-        BookReview::Book.all.find{|book| book_id == @input.to_i}
-        puts "Getting Your Review"
-        BookReview::Review.new(book.url)
+        # BookReview::Book.all.each do
+        # puts "Which book would you like to select to read the NYT review?"
+        # @input = gets.strip
+        #
+        # BookReview::Book.all.find{|book| book_id == @input.to_i}
+        # puts "Getting Your Review"
+        # BookReview::Review.new(book.url)
         end
       end
     end
