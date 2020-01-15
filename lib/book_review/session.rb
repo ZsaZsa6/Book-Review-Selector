@@ -48,7 +48,7 @@ class BookReview::Session
   def confirmation
     until BookReview::Book.all.length == 2
       book = BookReview::Book.all[-1]
-      puts "\n\n Book Title: #{book.book_title}\nAuthor: #{book.book_author}\nSummary: #{book.summary}\n\nISBN13: #{book.isbn13}\n\n"
+      puts "Book Title: #{book.book_title}\nAuthor: #{book.book_author}\nSummary: #{book.summary}\n\nISBN13: #{book.isbn13}\n\n"
       puts "Is this the book for which you would like to read the NYT review? Type yes or no."
       @input = gets.strip
       if @input == "y" || @input == "yes" || @input == "Y" || @input == "Yes"
@@ -58,9 +58,9 @@ class BookReview::Session
       elsif @input =="n" || @input == "N" || @input == "No" || @input == "NO"
       greeting
 
-        book_collection = BookReview::Book.all
-        book_id = book_collection.length
-        book_collection.each do
+        book_id = BookReview::Book.all.length
+        
+        BookReview::Book.all.each do
         puts "Book ID: #{book_id}\nBook Title: #{book.book_title}\nAuthor: #{book.book_author}\nSummary: #{book.summary}\n\nISBN13: #{book.isbn13}"
         puts "Which book would you like to select to read the NYT review?"
         @input = gets.strip
