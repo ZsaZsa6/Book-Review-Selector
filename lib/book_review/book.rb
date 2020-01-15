@@ -9,8 +9,7 @@ class BookReview::Book
       @summary = summary
       @isbn13 = isbn13
       @url = url
-      @book_id = @@all.length + 1
-      # set_book_id
+
       save
   end
 
@@ -21,12 +20,12 @@ class BookReview::Book
   def save
     @@all << self
   end
+
   # def set_book_id
-  # @book_id = @@all.length + 1
+  # book_id = @@all.length + 1
   # end
 
-  def self.find_by_id(input)
-   all.find{|book| book.book_id == input.to_i}
- end
+
+
 
 end
