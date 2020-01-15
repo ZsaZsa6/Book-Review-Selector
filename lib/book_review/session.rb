@@ -59,13 +59,13 @@ class BookReview::Session
       greeting
 
         book_id = BookReview::Book.all.length
-        
+
         BookReview::Book.all.each do
         puts "Book ID: #{book_id}\nBook Title: #{book.book_title}\nAuthor: #{book.book_author}\nSummary: #{book.summary}\n\nISBN13: #{book.isbn13}"
         puts "Which book would you like to select to read the NYT review?"
         @input = gets.strip
 
-        book_collection.find{|book| book_id == @input.to_i}
+        BookReview::Book.all.find{|book| book_id == @input.to_i}
         puts "Getting Your Review"
         BookReview::Review.new(book.url)
         end
