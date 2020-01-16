@@ -6,6 +6,7 @@ class BookReview::Review
     def initialize(url)
       @url = url
       get_doc(url)
+      save
 
     end
 
@@ -13,8 +14,13 @@ class BookReview::Review
       doc = Nokogiri::HTML(open(url))
       article = doc.css("section")
       paragraphs = article.css("div p")
-      paragraphs.each do |p|
-      puts p.text, "\n----------------\n"
+      reviews = paragraphs.each do |p|
+        # binding.pry
+        p.text.encode("iso-8859-1").force_encoding("utf-8"), "\n----------------\n"
       end
+      reviews
+    end
+    def save
+      @@reviews << self
     end
 end

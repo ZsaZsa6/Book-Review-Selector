@@ -9,16 +9,17 @@ class BookReview::Session
 
     if @input == "A" || @input == "a"
       book = title_search
-
+        confirmation(book)
     elsif @input == "B" || @input == "b"
       book = isbn_search
-
+        confirmation(book)
     elsif @input == "exit" || @input == "Exit"
       goodbye
+
     else
       invalid_input
     end
-      confirmation(book)
+
   end
 
   def title_search
@@ -63,6 +64,7 @@ class BookReview::Session
     end
 
   def invalid_input
+    binding.pry
     puts "That input is invalid. Please try again.\n\n"
     sleep(2)
     greeting
