@@ -11,7 +11,7 @@ class BookReview::Session
       book = title_search
     end
     if @input == "B" || @input == "b"
-      isbn_search
+      book = isbn_search
     end
     if @input == "exit" || @input == "Exit"
       goodbye
@@ -25,7 +25,6 @@ class BookReview::Session
     puts "Please enter the full title of the book:"
     @input = gets.strip
     title = @input
-
       if found_book = BookReview::Book.all.find {|book| book.book_title.downcase == title.downcase}
         return found_book
       else
@@ -37,7 +36,11 @@ class BookReview::Session
     puts "Please enter the thirteen digit ISBN:"
     @input = gets.strip
     isbn13 = @input
-    BookReview::Api.isbn_lists(isbn13)
+      if found_book = BookReview::Book.all.find {|book| book.isbn13 == isbn13}
+        return found_book
+      else
+    book = BookReview::Api.isbn_lists(isbn13)
+      end
   end
 
   def confirmation(book)
@@ -48,22 +51,12 @@ class BookReview::Session
       if @input == "y" || @input == "yes" || @input == "Y" || @input == "Yes"
         puts "Getting Your Review"
         BookReview::Review.new(book.url)
-        # binding.pry
 
-      else @input =="n" || @input == "N" || @input == "No" || @input == "NO"
+      elsif @input =="n" || @input == "N" || @input == "No" || @input == "NO"
       greeting
 
-        # book_id = BookReview::Book.all.length
-
-        # BookReview::Book.all.each do
-        # puts "Which book would you like to select to read the NYT review?"
-        # @input = gets.strip
-        #
-        # BookReview::Book.all.find{|book| book_id == @input.to_i}
-        # puts "Getting Your Review"
-        # BookReview::Review.new(book.url)
-
-
+      else
+        invalid_input
       end
     end
 
@@ -73,9 +66,9 @@ class BookReview::Session
     greeting
   end
 
-  # def get_user_input
-  #   @input = gets.strip
-  # end
+  def get_user_input
+    @input = gets.strip
+  end
 
   def goodbye
     puts "Thank you for using Book Review Selector. Have a great day!"
