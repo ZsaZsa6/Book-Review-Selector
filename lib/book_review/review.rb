@@ -14,7 +14,7 @@ class BookReview::Review
       article = doc.css("section")
       paragraphs = article.css("div p")
       paragraphs.each do |p|
-      puts p.text, "--"
+      puts p.text, "\n----------------\n"
       end
     end
 end

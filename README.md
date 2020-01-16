@@ -1,6 +1,6 @@
 # BookReview
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/book_review`. To experiment with that code, run `bin/console` for an interactive prompt.
+
 
 
 ## Installation
@@ -20,7 +20,11 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+  This CLI Data Gem provides the user with access to New York Times Best Seller Reviews.
+  To begin, the user will select whether to search for a book by title or the ISBN number.
+  The user then enters the title or ISBN. The gem shows information about the book and asks for confirmation that the book
+  displayed is the correct book.
+  If that is the correct book, the review is displayed on the screen.
 
 ## Development
 
