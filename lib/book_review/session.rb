@@ -50,7 +50,7 @@ class BookReview::Session
       get_user_input
       if @input == "y" || @input == "yes" || @input == "Y" || @input == "Yes"
         puts "Getting Your Review"
-        BookReview::Review.new(book.url)
+        BookReview::Review.new(book)
 
       elsif @input =="n" || @input == "N" || @input == "No" || @input == "NO"
       greeting
@@ -58,13 +58,9 @@ class BookReview::Session
       else
         invalid_input
       end
-      # if book == nil
-      #   invalid_input
-      # end
     end
 
   def invalid_input
-    binding.pry
     puts "That input is invalid. Please try again.\n\n"
     sleep(2)
     greeting
