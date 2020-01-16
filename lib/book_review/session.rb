@@ -15,6 +15,8 @@ class BookReview::Session
     end
     if @input == "exit" || @input == "Exit"
       goodbye
+
+      ### WORK ON THIS ###
     # else
     #     invalid_input
     end
@@ -65,10 +67,10 @@ class BookReview::Session
     sleep(2)
     greeting
   end
-
-  def get_user_input
-    @input = gets.strip
-  end
+   ##### Put this in place of the @input = gets.strip everywhere ####
+  # def get_user_input
+  #   @input = gets.strip
+  # end
 
   def goodbye
     puts "Thank you for using Book Review Selector. Have a great day!"

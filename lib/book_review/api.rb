@@ -2,6 +2,7 @@ class BookReview::Api
 
   def self.isbn_lists(isbn13)
       resp = HTTParty.get("https://api.nytimes.com/svc/books/v3/reviews.json?isbn=#{isbn13}&api-key=#{ENV["API_KEY"]}")
+      #put an if statement here so that an undefined method error because isbn13 doesn't match goes back to invalid_input
       book = resp["results"][0]
       book_title = book["book_title"]
       book_author = book["book_author"]
@@ -13,6 +14,7 @@ class BookReview::Api
 
   def self.title_lists(title)
       resp = HTTParty.get("https://api.nytimes.com/svc/books/v3/reviews.json?title=#{title}&api-key=#{ENV["API_KEY"]}")
+      #put an if statement here so that an undefined method error because title doesn't match goes back to invalid_input
       book = resp["results"][0]
       book_title = book["book_title"]
       book_author = book["book_author"]
