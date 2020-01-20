@@ -1,6 +1,6 @@
 class BookReview::Book
 
-  attr_accessor :book_title, :book_author, :summary, :isbn13, :url
+  attr_accessor :book_title, :book_author, :summary, :isbn13, :url, :review
   @@all = []
 
   def initialize(book_title, book_author, summary, isbn13, url)
@@ -9,7 +9,7 @@ class BookReview::Book
       @summary = summary
       @isbn13 = isbn13
       @url = url
-
+      @review = nil
       save
   end
 
@@ -20,12 +20,4 @@ class BookReview::Book
   def save
     @@all << self
   end
-
-  # def set_book_id
-  # book_id = @@all.length + 1
-  # end
-
-
-
-
 end
