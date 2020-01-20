@@ -72,6 +72,7 @@ class BookReview::Session
     else
       goodbye
     end
+  end
 
   def invalid_input
     puts "That input is invalid. Please try again.\n\n"
