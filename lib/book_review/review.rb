@@ -15,7 +15,7 @@ class BookReview::Review
 
     end
     def get_review_text
-      @review_text.map do |p|
+      @review_text.each do |p|
         puts p.text.encode("iso-8859-1").force_encoding("utf-8"), "\n----------------\n"
       end
     end
