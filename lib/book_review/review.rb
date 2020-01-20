@@ -3,19 +3,20 @@ class BookReview::Review
     attr_accessor :book
 
     def initialize(book)
-      set_review(book)
+      @review_text = set_review(book)
     end
 
     def set_review(book)
+      book.review = self
 
       doc = Nokogiri::HTML(open(book.url))
       article = doc.css("section")
-      paragraphs = article.css("div p")
+      article.css("div p")
 
-      paragraphs.map do |p|
+    end
+    def get_review_text
+      @review_text.map do |p|
         puts p.text.encode("iso-8859-1").force_encoding("utf-8"), "\n----------------\n"
-
       end
-      book.review = paragraphs
     end
   end

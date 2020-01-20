@@ -10,19 +10,18 @@ class BookReview::Session
 
     get_user_input
 
-    if @input.downcase == "a"
+    if @input == "a"
       book = title_search
         confirmation(book)
-    elsif @input.downcase == "b"
+    elsif @input == "b"
       book = isbn_search
         confirmation(book)
-    elsif @input.downcase == "exit"
+    elsif @input == "exit"
       goodbye
 
     else
       invalid_input
     end
-
   end
 
   def title_search
@@ -51,32 +50,27 @@ class BookReview::Session
       puts "Book Title: #{book.book_title}\nAuthor: #{book.book_author}\nSummary: #{book.summary}\n\nISBN13: #{book.isbn13}\n\n"
       puts "Is this the book you would like to review?"
       get_user_input
-      if @input.downcase == "y" || @input.downcase == "yes"
+      if @input == "y" || @input == "yes"
         puts "Getting Your Review"
-        if book.review
-          puts "Found existing review"
-          sleep(3)
-          book.review.map do |p|
-            puts p.text.encode("iso-8859-1").force_encoding("utf-8"), "\n----------------\n"
-          end
-        else
-          puts "Existing review not found. Searching for your review...."
-          sleep(3)
+        if !book.review
           BookReview::Review.new(book)
         end
-        puts "Would you like to see another review?"
-        get_user_input
-        if @input.downcase == "y" || @input.downcase == "yes"
-          greeting
-        else
-          goodbye
-        end
-      elsif @input.downcase =="n" || @input.downcase == "no"
+        book.review.get_review_text
+        another_review
+      elsif @input =="n" || @input == "no"
       greeting
 
       else
         invalid_input
       end
+    end
+  def another_review
+    puts "Would you like to see another review?"
+    get_user_input
+    if @input == "y" || @input == "yes"
+      greeting
+    else
+      goodbye
     end
 
   def invalid_input
@@ -86,7 +80,7 @@ class BookReview::Session
   end
 
   def get_user_input
-    @input = gets.strip
+    @input = gets.strip.downcase
   end
 
   def goodbye
