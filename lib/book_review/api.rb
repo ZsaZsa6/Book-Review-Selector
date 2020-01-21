@@ -2,7 +2,7 @@ class BookReview::Api
 
   def self.isbn_lists(isbn13)
       resp = HTTParty.get("https://api.nytimes.com/svc/books/v3/reviews.json?isbn=#{isbn13}&api-key=#{ENV["API_KEY"]}")
-      if resp["result"].empty?
+      if resp["results"].empty?
        BookReview::Session.new.invalid_input
       else
       book = resp["results"][0]
