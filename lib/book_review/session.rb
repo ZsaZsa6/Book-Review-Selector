@@ -70,6 +70,7 @@ class BookReview::Session
     if @input == "y" || @input == "yes"
       greeting
     else
+      @input == "n" || @input == "no"
       goodbye
     end
   end
